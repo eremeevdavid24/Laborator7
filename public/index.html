@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bibliotecă • Căutare</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="index">
+  <div class="nav">
+    <div class="brand">📚 Biblioteca <span class="badge">Căutare & Împrumut</span></div>
+    <div class="row">
+      <span class="badge" id="me">—</span>
+      <a class="btn" id="adminLink" href="admin.html" style="display:none;">🛠 Admin</a>
+      <button class="btn" id="btnAdminToggle" style="display:none; background: linear-gradient(180deg, rgba(35,196,131,.15), rgba(35,196,131,.08));">📋 Administrare</button>
+      <button class="btn" id="btnGoLoans">Împrumuturile mele</button>
+      <button class="btn danger" id="btnLogout">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <h2>Caută cărți</h2>
+        <div class="row">
+          <input class="input" id="q" placeholder="Caută după titlu / autor / ISBN">
+          <button class="btn primary" id="btnSearch">Caută</button>
+        </div>
+        <div style="height:10px"></div>
+        <label class="row small muted">
+          <input type="checkbox" id="onlyAvail"> doar disponibile
+        </label>
+
+        <div id="toast"></div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Carte</th>
+              <th>Categorie</th>
+              <th>ISBN</th>
+              <th>An</th>
+              <th>Stare</th>
+              <th>Acțiuni</th>
+            </tr>
+          </thead>
+          <tbody id="booksBody"></tbody>
+        </table>
+
+        <div id="pager" style="margin-top:10px"></div>
+      </div>
+
+      <div class="card">
+        <h2>Reguli</h2>
+        <p class="muted">Împrumutul scade automat disponibilul. Returnarea îl crește înapoi.</p>
+        <div class="hr"></div>
+        <p class="small muted">
+          • Scadență automată: <b>14 zile</b><br>
+          • Dacă nu e disponibil, butonul „Reservă" e dezactivat<br>
+          • Bibliotecarul poate administra inventarul în pagina Admin
+        </p>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="card" id="adminCardSection" style="display:none;">
+      <h2>📋 Administrare - Adaugă Cărți</h2>
+      
+      <input type="hidden" id="bookId">
+
+      <label class="small muted">Titlu</label>
+      <input class="input" id="adminTitle" placeholder="Ex: Programare în Java">
+
+      <div style="height:10px"></div>
+      <label class="small muted">Autor</label>
+      <input class="input" id="adminAuthor" placeholder="Ex: Nume Autor">
+
+      <div style="height:10px"></div>
+      <div class="row">
+        <div style="flex:1">
+          <label class="small muted">ISBN</label>
+          <input class="input" id="adminIsbn" placeholder="opțional">
+        </div>
+        <div style="flex:1">
+          <label class="small muted">Categorie</label>
+          <input class="input" id="adminCategory" placeholder="Ex: Educație">
+        </div>
+      </div>
+
+      <div style="height:10px"></div>
+      <div class="row">
+        <div style="flex:1">
+          <label class="small muted">An</label>
+          <input class="input" id="adminYear" placeholder="Ex: 2024">
+        </div>
+        <div style="flex:1">
+          <label class="small muted">Total exemplare</label>
+          <input class="input" id="adminTotal" value="1">
+        </div>
+      </div>
+
+      <div style="height:12px"></div>
+      <div class="row">
+        <button class="btn primary" id="btnAdminSave">Salvează</button>
+        <button class="btn" id="btnAdminReset">Reset</button>
+      </div>
+
+      <div id="adminToast"></div>
+    </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

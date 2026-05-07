@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bibliotecă • Login</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    body[data-page="login"] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      flex-direction: column;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    body[data-page="login"] .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    body[data-page="login"] .logo-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    body[data-page="login"] .logo-icon {
+      font-size: 64px;
+      display: inline-block;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    }
+    
+    body[data-page="login"] .logo-text {
+      font-size: 28px;
+      font-weight: 700;
+      color: white;
+      margin-top: 10px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    body[data-page="login"] .card {
+      max-width: 420px;
+      width: 100%;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+    }
+    
+    body[data-page="login"] .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+    }
+    
+    body[data-page="login"] .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    
+    body[data-page="login"] .input-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #6b7280;
+      pointer-events: none;
+    }
+    
+    body[data-page="login"] .input {
+      padding-left: 42px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    body[data-page="login"] .input:focus {
+      border-color: #7c5cff;
+      box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    body[data-page="login"] .btn.primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 14px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    body[data-page="login"] .btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+    
+    body[data-page="login"] .btn.primary:active {
+      transform: translateY(0);
+    }
+    
+    body[data-page="login"] .footer {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      font-size: 13px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body data-page="login">
+  <div class="container">
+    <div class="logo-container">
+      <div class="logo-icon">📚</div>
+      <div class="logo-text">Biblioteca</div>
+    </div>
+    
+    <div class="card">
+      <h2 style="text-align: center; margin-top: 0; margin-bottom: 25px; color: #1a1a2e; font-size: 24px;">Bine ai revenit!</h2>
+      
+      <div class="input-group">
+        <span class="input-icon">👤</span>
+        <input class="input" id="email" placeholder="Introdu email-ul">
+      </div>
+
+      <div class="input-group">
+        <span class="input-icon">🔒</span>
+        <input class="input" id="password" type="password" placeholder="Introdu parola">
+      </div>
+
+      <button class="btn primary" id="btnLogin" style="width: 100%;">Autentificare</button>
+
+      <div id="toast"></div>
+    </div>
+  </div>
+
+  <div class="footer">© Sistem de gestionare a bibliotecii</div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bibliotecă • Admin</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="admin">
+  <div class="nav">
+    <div class="brand">🛠 Admin <span class="badge">Inventar & Împrumuturi</span></div>
+    <div class="row">
+      <span class="badge" id="me">—</span>
+      <button class="btn" id="btnAdminToggle" style="background: linear-gradient(180deg, rgba(35,196,131,.15), rgba(35,196,131,.08));">📋 Administrare</button>
+      <button class="btn" id="btnBack">Înapoi</button>
+      <button class="btn danger" id="btnLogout">Logout</button>
+    </div>
+  </div>
+
+  <div id="adminPanel" style="display:none; background: #f9fafb; border-bottom: 2px solid rgba(0,0,0,.08); padding: 20px;">
+    <div class="container">
+      <h3 style="margin: 0 0 15px 0; color: #1a1a2e;">Panou Administrare</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+          <h4 style="margin: 0 0 10px 0; font-size: 14px; color: #6b7280;">📚 Gestionare Cărți</h4>
+          <p style="margin: 0 0 10px 0; font-size: 12px; color: #6b7280;">Adaugă, editează sau șterge cărți din bibliotecă</p>
+          <button class="btn ok" id="btnScrollBooks">Mergi la adăugare cărți</button>
+        </div>
+        <div>
+          <h4 style="margin: 0 0 10px 0; font-size: 14px; color: #6b7280;">↩️ Returnare Cărți</h4>
+          <p style="margin: 0 0 10px 0; font-size: 12px; color: #6b7280;">Returnează cărți împrumutate de utilizatori</p>
+          <button class="btn primary" id="btnScrollLoans">Mergi la împrumuturi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <h2 id="formTitle">Adaugă carte</h2>
+
+        <input type="hidden" id="bookId">
+
+        <label class="small muted">Titlu</label>
+        <input class="input" id="title" placeholder="Ex: Programare în Java">
+
+        <div style="height:10px"></div>
+        <label class="small muted">Autor</label>
+        <input class="input" id="author" placeholder="Ex: Nume Autor">
+
+        <div style="height:10px"></div>
+        <div class="row">
+          <div style="flex:1">
+            <label class="small muted">ISBN</label>
+            <input class="input" id="isbn" placeholder="opțional">
+          </div>
+          <div style="flex:1">
+            <label class="small muted">Categorie</label>
+            <input class="input" id="category" placeholder="Ex: Educație">
+          </div>
+        </div>
+
+        <div style="height:10px"></div>
+        <div class="row">
+          <div style="flex:1">
+            <label class="small muted">An</label>
+            <input class="input" id="year" placeholder="Ex: 2024">
+          </div>
+          <div style="flex:1">
+            <label class="small muted">Total exemplare</label>
+            <input class="input" id="total" value="1">
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+        <div class="row">
+          <button class="btn primary" id="btnSave">Salvează</button>
+          <button class="btn" id="btnReset">Reset</button>
+        </div>
+
+        <div id="toast"></div>
+      </div>
+
+      <div class="card">
+        <h2>Inventar (ultimele)</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th><th>Carte</th><th>Cat.</th><th>An</th><th>Total/Disp.</th><th>Acțiuni</th>
+            </tr>
+          </thead>
+          <tbody id="adminBooks"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="card">
+      <h2>Împrumuturi (toate)</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th><th>Utilizator</th><th>Carte</th><th>Împr.</th><th>Scadent</th><th>Returnat</th><th>Status</th><th>Acțiune</th>
+          </tr>
+        </thead>
+        <tbody id="adminLoans"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bibliotecă • Împrumuturile mele</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="dashboard">
+  <div class="nav">
+    <div class="brand">📦 Împrumuturile mele <span class="badge">Returnare</span></div>
+    <div class="row">
+      <span class="badge" id="me">—</span>
+      <button class="btn" id="btnBack">Înapoi</button>
+      <button class="btn danger" id="btnLogout">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h2>Lista împrumuturilor</h2>
+      <div id="toast"></div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Carte</th>
+            <th>Împrumutat</th>
+            <th>Scadent</th>
+            <th>Returnat</th>
+            <th>Status</th>
+            <th>Acțiune</th>
+          </tr>
+        </thead>
+        <tbody id="loansBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
